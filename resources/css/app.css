@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&family=Nunito:wght@700&display=swap');
+@import 'tailwindcss';
+
+@source '../js/**/*.vue';
+@source '../views/**/*.blade.php';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --color-brand: #153d36;
+    --color-brand-bright: #56e6b1;
+    --color-brand-highlight: #d8ff73;
+    --color-secondary-surface: #f7fbf8;
+    --color-secondary-soft: #e5f5eb;
+    --color-secondary-text: #1c2b2b;
+
+    --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-heading: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-subheading: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+    body {
+        font-family: var(--font-sans);
+        font-weight: 400;
+    }
+}
+
+@utility font-subheading {
+    font-family: var(--font-subheading);
+    font-weight: 700;
+}
+
+details.faq-accordion::details-content {
+    interpolate-size: allow-keywords;
+    overflow: clip;
+    contain: layout;
+}
+
+details.faq-accordion:not([open])::details-content {
+    block-size: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    details.faq-accordion::details-content {
+        transition: block-size 250ms ease, content-visibility 250ms ease allow-discrete;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
