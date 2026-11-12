@@ -36,7 +36,7 @@ return [
     ],
 
     'quote_requests' => [
-        'recipient' => env('QUOTE_REQUEST_RECIPIENT', 'service@super-fresh.com'),
+        'recipient' => env('QUOTE_REQUEST_RECIPIENT', 'service@super-fresh.nl'),
     ],
 
 ];

@@ -32,7 +32,7 @@
                         </div>
                         <div>
                             <dt class="font-subheading text-sm text-brand">E-mail</dt>
-                            <dd class="mt-1"><a href="mailto:service@super-fresh.com" class="break-words text-secondary-text/75 hover:text-brand">service@super-fresh.com</a></dd>
+                            <dd class="mt-1"><a href="mailto:service@super-fresh.nl" class="break-words text-secondary-text/75 hover:text-brand">service@super-fresh.nl</a></dd>
                         </div>
                         <div>
                             <dt class="font-subheading text-sm text-brand">Adres</dt>

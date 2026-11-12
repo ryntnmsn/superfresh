@@ -5,8 +5,8 @@
 <p><strong>E-mailadres:</strong> {{ $quoteRequest['email'] }}</p>
 <p><strong>Telefoonnummer:</strong> {{ $quoteRequest['phone'] }}</p>
 <p><strong>Type dienstverlening:</strong> {{ $quoteRequest['service_type'] }}</p>
-<p><strong>Plaats / locatie:</strong> {{ $quoteRequest['location'] }}</p>
-<p><strong>Aantal locaties:</strong> {{ ($quoteRequest['location_count'] ?? null) ?: 'Niet ingevuld' }}</p>
-<p><strong>Gewenste schoonmaakfrequentie:</strong> {{ ($quoteRequest['frequency'] ?? null) ?: 'Niet ingevuld' }}</p>
-<p><strong>Wensen:</strong></p>
-<p>{!! nl2br(e(($quoteRequest['wishes'] ?? null) ?: 'Niet ingevuld')) !!}</p>
+<p><strong>Postcode schoonmaaklocatie:</strong> {{ $quoteRequest['postal_code'] }}</p>
+<p><strong>Gewenste startdatum:</strong> {{ ($quoteRequest['start_date'] ?? null) ?: 'Nog niet bekend' }}</p>
+<p><strong>Hoe vaak is schoonmaak nodig:</strong> {{ ($quoteRequest['frequency'] ?? null) ?: 'Nog niet bekend' }}</p>
+<p><strong>Wat wilt u laten schoonmaken?</strong></p>
+<p>{!! nl2br(e($quoteRequest['cleaning_description'])) !!}</p>

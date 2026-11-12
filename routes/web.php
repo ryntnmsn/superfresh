@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\Article;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ArticleCategoryController;
 use App\Http\Controllers\Admin\ArticleController;
@@ -9,8 +9,37 @@ use App\Http\Controllers\QuoteRequestController;
 use App\Http\Controllers\PublicArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MeetingRequestController;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
+Route::get('/sitemap.xml', function (): Response {
+    $urls = [
+        route('home'),
+        route('schoonmaakdiensten'),
+        route('kantoorschoonmaak'),
+        route('schoonmaak-scholen'),
+        route('airbnb-schoonmaak'),
+        route('schoonmaak-huurwoningen'),
+        route('schoonmaak-vastgoed'),
+        route('werkgebied'),
+        route('over-superfresh'),
+        route('veelgestelde-vragen'),
+        route('contact'),
+        route('offerte-aanvragen'),
+        route('tips-advies'),
+    ];
+    $articleUrls = Article::query()
+        ->where('status', 'published')
+        ->pluck('slug')
+        ->map(fn (string $slug): string => route('tips-advies.show', ['article' => $slug]))
+        ->all();
+
+    return response()->view('sitemap', ['urls' => [...$urls, ...$articleUrls]], 200, ['Content-Type' => 'application/xml']);
+})->name('sitemap');
+Route::get('/robots.txt', function (): Response {
+    return response("User-agent: *\nAllow: /\nSitemap: ".route('sitemap')."\n", 200, ['Content-Type' => 'text/plain']);
+})->name('robots');
 Route::view('/schoonmaakdiensten', 'pages.schoonmaakdiensten')->name('schoonmaakdiensten');
 Route::view('/kantoorschoonmaak', 'pages.kantoorschoonmaak')->name('kantoorschoonmaak');
 Route::view('/schoonmaak-scholen', 'pages.schoonmaak-scholen')->name('schoonmaak-scholen');

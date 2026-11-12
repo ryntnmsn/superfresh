@@ -34,7 +34,7 @@
             <h2 class="font-heading text-base font-extrabold text-white">Contact</h2>
             <address class="mt-4 space-y-3 not-italic leading-6">
                 <p><a href="tel:+31705680983" class="transition hover:text-white">+31(0) 70 568 0983</a></p>
-                <p><a href="mailto:service@super-fresh.com" class="break-words transition hover:text-white">service@super-fresh.com</a></p>
+                <p><a href="mailto:service@super-fresh.nl" class="break-words transition hover:text-white">service@super-fresh.nl</a></p>
                 <p>Caerus Tech B.V.<br>J.C. van Markenlaan 32<br>2285 VL Rijswijk</p>
             </address>
         </section>

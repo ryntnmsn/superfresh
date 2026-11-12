@@ -51,7 +51,7 @@
                     <h2 id="contact-heading" class="font-heading mt-3 text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">Staat uw locatie er niet tussen?</h2>
                     <p class="mt-6 text-lg leading-8 text-secondary-text/75">Neem gerust contact met ons op. We bespreken graag of uw locatie binnen ons werkgebied valt.</p>
                     <div class="mt-8 flex justify-center">
-                        <x-site.button href="mailto:service@super-fresh.com">Neem contact op</x-site.button>
+                        <x-site.button href="{{ route('contact') }}">Neem contact op</x-site.button>
                     </div>
                 </div>
             </div>

@@ -6,21 +6,30 @@ use App\Mail\QuoteRequestReceived;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class QuoteRequestController extends Controller
 {
-    public function create(): View
+    /** @var array<string, string> */
+    private const SERVICE_TYPES = [
+        'kantoor' => 'Kantoorschoonmaak',
+        'scholen' => 'Schoonmaak voor scholen',
+        'airbnb' => 'Airbnb & short-stay schoonmaak',
+        'verhuurders' => 'Schoonmaak voor verhuurders',
+        'vastgoed' => 'Schoonmaak voor vastgoedprofessionals',
+        'anders' => 'Anders',
+    ];
+
+    public function create(Request $request): View
     {
+        $requestedService = $request->query('service');
+
         return view('pages.offerte-aanvragen', [
-            'serviceTypes' => [
-                'Kantoorschoonmaak',
-                'Schoonmaak voor scholen',
-                'Airbnb & short-stay schoonmaak',
-                'Schoonmaak voor huurwoningen',
-                'Vastgoedschoonmaak',
-                'Anders',
-            ],
+            'serviceTypes' => array_values(self::SERVICE_TYPES),
+            'selectedService' => is_string($requestedService)
+                ? (self::SERVICE_TYPES[$requestedService] ?? null)
+                : null,
             'frequencies' => [
                 'Dagelijks',
                 'Meerdere keren per week',
@@ -39,26 +48,35 @@ class QuoteRequestController extends Controller
             'business_name' => ['nullable', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['required', 'string', 'max:50'],
-            'service_type' => ['required', 'string', 'in:Kantoorschoonmaak,Schoonmaak voor scholen,Airbnb & short-stay schoonmaak,Schoonmaak voor huurwoningen,Vastgoedschoonmaak,Anders'],
-            'location' => ['required', 'string', 'max:255'],
-            'location_count' => ['nullable', 'integer', 'min:1', 'max:10000'],
+            'service_type' => ['required', 'string', Rule::in(array_values(self::SERVICE_TYPES))],
+            'postal_code' => ['required', 'string', 'max:16'],
+            'cleaning_description' => ['required', 'string', 'max:5000'],
+            'start_date' => ['nullable', 'date'],
             'frequency' => ['nullable', 'string', 'in:Dagelijks,Meerdere keren per week,Wekelijks,Maandelijks,Eenmalig,Anders / in overleg'],
-            'wishes' => ['nullable', 'string', 'max:5000'],
+            'photos' => ['nullable', 'array', 'max:5'],
+            'photos.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:10240'],
         ], [
             'name.required' => 'Vul uw naam in.',
             'email.required' => 'Vul uw e-mailadres in.',
             'email.email' => 'Vul een geldig e-mailadres in.',
             'phone.required' => 'Vul uw telefoonnummer in.',
             'service_type.required' => 'Kies het type dienstverlening.',
-            'service_type.in' => 'Kies een geldig type dienstverlening.',
-            'location.required' => 'Vul de plaats of locatie in.',
-            'location_count.integer' => 'Vul een geldig aantal locaties in.',
-            'location_count.min' => 'Het aantal locaties moet minimaal 1 zijn.',
+            'service_type.in' => 'Kies een geldige schoonmaakdienst.',
+            'postal_code.required' => 'Vul de postcode van de schoonmaaklocatie in.',
+            'cleaning_description.required' => 'Beschrijf wat u wilt laten schoonmaken.',
+            'start_date.date' => 'Vul een geldige gewenste startdatum in.',
             'frequency.in' => 'Kies een geldige schoonmaakfrequentie.',
+            'photos.max' => 'U kunt maximaal vijf foto’s toevoegen.',
+            'photos.*.image' => 'Voeg alleen afbeeldingen toe.',
+            'photos.*.mimes' => 'Gebruik een JPG-, PNG- of WebP-afbeelding.',
+            'photos.*.max' => 'Elke foto mag maximaal 10 MB zijn.',
         ]);
 
+        $photos = $validated['photos'] ?? [];
+        unset($validated['photos']);
+
         Mail::to(config('services.quote_requests.recipient'))
-            ->send(new QuoteRequestReceived($validated));
+            ->send(new QuoteRequestReceived($validated, $photos));
 
         return redirect()->route('offerte-aanvragen')->with('quote_request_submitted', true);
     }

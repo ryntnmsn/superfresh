@@ -1,6 +1,9 @@
 @extends('layouts.site')
 
 @section('title', 'Kantoorschoonmaak')
+@section('seo_title', 'Kantoorschoonmaak Den Haag | Superfresh')
+@section('overview_excerpt', 'Van werkplekken en vergaderruimtes tot keuken en sanitair. Wij maken uw kantoor schoon op de afgesproken momenten.')
+@section('meta_description', 'Kantoorschoonmaak in Den Haag en omgeving. Vaak starten binnen 48 uur na akkoord. Vraag een offerte aan en bespreek uw gewenste startdatum.')
 
 @section('content')
     <main class="flex-1" aria-label="Kantoorschoonmaak">
@@ -8,59 +11,66 @@
             <div class="mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8 lg:py-32">
                 <div class="max-w-3xl">
                     <p class="font-subheading text-sm uppercase tracking-[0.16em] text-brand/75">Kantoorschoonmaak</p>
-                    <h1 class="font-heading mt-4 text-4xl font-extrabold tracking-tight text-brand sm:text-5xl lg:text-6xl">Professionele kantoorschoonmaak voor een verzorgde werkomgeving</h1>
+                    <h1 class="font-heading mt-4 text-4xl font-extrabold tracking-tight text-brand sm:text-5xl lg:text-6xl">Kantoorschoonmaak in Den Haag en omgeving</h1>
                     <div class="mt-6 max-w-2xl space-y-4 text-lg leading-8 text-secondary-text/80">
-                        <p>Een schoon kantoor maakt een professionele indruk op medewerkers, klanten en bezoekers.</p>
-                        <p>Superfresh richt zich op kantoorschoonmaak voor bedrijven in Den Haag en omgeving.</p>
+                        <p>Superfresh maakt kantoren schoon in Den Haag en omgeving. Van werkplekken en vergaderruimtes tot de keuken en het sanitair.</p>
+                        <p>Wilt u de schoonmaak uitbesteden of zoekt u een ander schoonmaakbedrijf? We hebben mensen beschikbaar voor nieuwe opdrachten. Vertel ons wat er moet gebeuren en hoe vaak. Dan maken we een offerte en bespreken we wanneer we kunnen beginnen.</p>
                     </div>
-                    <div class="mt-8">
-                        <x-site.button href="{{ route('offerte-aanvragen') }}">Offerte aanvragen</x-site.button>
+                    <div class="mt-8 flex flex-wrap items-center gap-4">
+                        <x-site.button href="{{ route('offerte-aanvragen', ['service' => 'kantoor']) }}">Vraag een offerte aan</x-site.button>
+                        <a href="tel:+31705680983" class="font-subheading text-sm text-brand underline decoration-brand/40 underline-offset-4 hover:decoration-brand">Snel starten? Bel ons</a>
                     </div>
+                    <x-site.availability />
                 </div>
             </div>
         </section>
 
-        <section aria-labelledby="office-care-heading" class="bg-white">
-            <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-28">
-                <div>
-                    <p class="font-subheading text-sm text-brand/75">Een prettige werkplek</p>
-                    <h2 id="office-care-heading" class="font-heading mt-3 text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">Een kantoor dat er verzorgd uitziet</h2>
-                </div>
-                <div class="space-y-4 text-lg leading-8 text-secondary-text/75">
-                    <p>Een kantoor wordt dagelijks gebruikt. Werkplekken, vergaderruimtes en gemeenschappelijke ruimtes verdienen daarom aandacht.</p>
-                    <p>Met een passende schoonmaakoplossing blijft uw kantoor een verzorgde omgeving waarin medewerkers en bezoekers zich prettig kunnen voelen.</p>
-                </div>
-            </div>
-        </section>
-
-        <section aria-labelledby="tailored-cleaning-heading" class="bg-secondary-surface">
+        <section aria-labelledby="daily-spaces-heading" class="bg-white">
             <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
-                <div class="mx-auto max-w-3xl text-center">
-                    <p class="font-subheading text-sm text-brand/75">Aandacht voor uw werkomgeving</p>
-                    <h2 id="tailored-cleaning-heading" class="font-heading mt-3 text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">Kantoorschoonmaak afgestemd op uw bedrijf</h2>
-                    <div class="mt-6 space-y-4 text-lg leading-8 text-secondary-text/75">
-                        <p>Ieder bedrijf heeft een eigen werkomgeving en schoonmaakbehoefte.</p>
-                        <p>Of u nu een kleinere kantoorruimte beheert of verantwoordelijk bent voor een groter bedrijfspand, we bespreken graag uw wensen en de mogelijkheden.</p>
-                    </div>
-                </div>
-
-                <div class="mx-auto mt-14 max-w-4xl rounded-md border border-brand/10 bg-white p-7 shadow-sm sm:p-10">
-                    <h3 class="font-heading text-2xl font-extrabold text-brand">Voor welke bedrijven?</h3>
-                    <p class="mt-3 text-secondary-text/75">Onze kantoorschoonmaak is gericht op:</p>
-                    <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+                <div class="mx-auto max-w-5xl">
+                    <h2 id="daily-spaces-heading" class="font-heading text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">Wat maken we schoon op uw kantoor?</h2>
+                    <p class="mt-6 text-lg leading-8 text-secondary-text/75">Vergadertafels worden de hele dag gebruikt, in de keuken blijft de afwas zich opstapelen en de vloeren lopen snel vuil. Wij nemen de afgesproken schoonmaakwerkzaamheden uit handen.</p>
+                    <p class="mt-6 text-lg leading-8 text-secondary-text/75">In het schoonmaakprogramma kunnen we onder meer opnemen:</p>
+                    <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         @foreach ([
-                            'Kleine en middelgrote bedrijven.',
-                            'Grotere kantooromgevingen.',
-                            'Zakelijke panden.',
-                            'Organisaties met meerdere werkruimtes.',
-                        ] as $audience)
-                            <li class="flex items-start gap-3 rounded-md bg-secondary-surface p-4 leading-7 text-secondary-text/80">
-                                <span class="mt-2 size-2 shrink-0 rounded-full bg-brand-bright" aria-hidden="true"></span>
-                                <span>{{ $audience }}</span>
+                            'Bureaus en bereikbare werkoppervlakken afnemen.',
+                            'Vloeren stofzuigen en dweilen.',
+                            'Toiletten en wastafels reinigen.',
+                            'De keuken of pantry schoonmaken.',
+                            'Afvalbakken legen.',
+                            'De entree en vergaderruimtes schoonhouden.',
+                        ] as $task)
+                            <li class="flex items-start gap-3 rounded-lg border border-brand/10 bg-white p-4 text-sm leading-6 text-secondary-text/75 shadow-sm">
+                                <img src="{{ asset('images/check-icon.png') }}" alt="" aria-hidden="true" class="mt-0.5 size-5 shrink-0 rounded-full object-contain">
+                                <span>{{ $task }}</span>
                             </li>
                         @endforeach
                     </ul>
+                    <p class="mt-6 text-base leading-7 text-secondary-text/75">We leggen vooraf vast welke werkzaamheden bij iedere schoonmaakbeurt horen en wat minder vaak nodig is.</p>
                 </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="cleaning-plan-heading" class="bg-secondary-surface">
+            <div class="mx-auto grid max-w-7xl items-center gap-10 px-6 py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+                <div>
+                    <h2 id="cleaning-plan-heading" class="font-heading text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">Afspraken die passen bij uw werkdag</h2>
+                    <div class="mt-6 space-y-4 text-lg leading-8 text-secondary-text/75">
+                        <p>Een drukbezet kantoor vraagt om een andere schoonmaakfrequentie dan een locatie waar medewerkers enkele dagen per week aanwezig zijn.</p>
+                        <p>Daarom kijken we naar het gebruik van de ruimtes, de bezetting en uw wensen. Ook het schoonmaakmoment en de toegang tot het pand spreken we vooraf af. Zo weet u wat er wordt schoongemaakt en wanneer.</p>
+                    </div>
+                </div>
+                <img src="https://images.openai.com/static-rsc-4/GeQnPAFItM0zaQiSRH17oEes5tUYn4p8dllmbH3W1zq18dybbrRZk13hZjg50YV1d1OXRHKhsV_aOhX71OfzsAL39juNxvdhbhGHcyca3aGR9_6PxmcHXxSpcpH6Oloz5-_1U5AKzNhYq8sHht9VA2xVPz7MfIo3n_bBtkxzFBs?purpose=inline" alt="Een lichte, verzorgde kantoorwerkplek" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
+            </div>
+        </section>
+
+        <section aria-labelledby="cleaning-cost-heading" class="bg-white">
+            <div class="mx-auto grid max-w-7xl items-center gap-10 px-6 py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+                <div>
+                    <h2 id="cleaning-cost-heading" class="font-heading text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">Wat kost kantoorschoonmaak?</h2>
+                    <p class="mt-6 text-lg leading-8 text-secondary-text/75">De prijs hangt af van de oppervlakte, het aantal ruimtes, de werkzaamheden en de schoonmaakfrequentie. Vermeld bij uw aanvraag ook eventuele bijzonderheden, zoals meerdere verdiepingen of veel sanitair. Op basis daarvan stellen we een offerte op.</p>
+                </div>
+                <img src="https://images.openai.com/static-rsc-4/UW86ErY3PpVvO3wIO1WBQ_UrP3NlZhP0mzsd50KYijs6UKtZf9G5odJfSoCtmuzkB2gAvlL1fqT-25vG8DrbMoALYZup8QxkIzqXl9qE4cjRwrDriBB-6oUD0CtAXrpyzZ12cxXwWJ7xhTSMxRlH6x2AEfWYy2tXUZqYPkwN5xs?purpose=inline" alt="Een professioneel onderhouden kantoorinterieur" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
             </div>
         </section>
 
@@ -68,10 +78,11 @@
             <div class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-8 lg:py-28">
                 <div class="mx-auto max-w-3xl">
                     <p class="font-subheading text-sm text-brand/75">Samen bekijken wat past</p>
-                    <h2 id="contact-heading" class="font-heading mt-3 text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">Interesse in kantoorschoonmaak?</h2>
-                    <p class="mt-6 text-lg leading-8 text-secondary-text/75">Vertel ons meer over uw kantoor en uw wensen. We bekijken graag welke schoonmaakoplossing passend is.</p>
-                    <div class="mt-8 flex justify-center">
-                        <x-site.button href="{{ route('offerte-aanvragen') }}">Offerte aanvragen</x-site.button>
+                    <h2 id="contact-heading" class="font-heading mt-3 text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">Wanneer wilt u starten met kantoorschoonmaak?</h2>
+                    <p class="mt-6 text-lg leading-8 text-secondary-text/75">Geef de locatie, de geschatte oppervlakte en de gewenste frequentie door. We kunnen vaak binnen 48 uur na akkoord starten en spreken de startdatum vooraf met u af.</p>
+                    <div class="mt-8 flex flex-wrap justify-center gap-4">
+                        <x-site.button href="{{ route('offerte-aanvragen', ['service' => 'kantoor']) }}">Vraag een offerte aan</x-site.button>
+                        <a href="tel:+31705680983" class="font-subheading inline-flex items-center text-sm text-brand underline decoration-brand/40 underline-offset-4 hover:decoration-brand">Bel ons voor de planning</a>
                     </div>
                 </div>
             </div>
