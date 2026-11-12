@@ -27,7 +27,7 @@ class QuoteRequestReceived extends Mailable
     {
         return new Envelope(
             replyTo: [new Address($this->quoteRequest['email'], $this->quoteRequest['name'])],
-            subject: 'Nieuwe offerteaanvraag via de website',
+            subject: 'New quote request from the website',
         );
     }
 

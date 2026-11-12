@@ -14,7 +14,7 @@ class ContactMessageReceived extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * @param array{name: string, business_name?: ?string, email: string, phone?: ?string, subject: string, message: string} $contactMessage
+     * @param array{name: string, business_name?: ?string, email: string, phone?: ?string, message: string} $contactMessage
      */
     public function __construct(public array $contactMessage)
     {
@@ -24,7 +24,7 @@ class ContactMessageReceived extends Mailable
     {
         return new Envelope(
             replyTo: [new Address($this->contactMessage['email'], $this->contactMessage['name'])],
-            subject: 'Nieuw contactbericht via de website',
+            subject: 'New contact message from the website',
         );
     }
 

@@ -32,15 +32,6 @@
             <x-heroicon-o-tag class="size-5 shrink-0" aria-hidden="true" />
             <span>Article categories</span>
         </a>
-        <a href="{{ route('admin.bookings.index') }}"
-            @class([
-                'flex shrink-0 items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition',
-                'bg-brand-bright text-brand' => request()->routeIs('admin.bookings.*'),
-                'text-secondary-surface hover:bg-secondary-surface/10' => ! request()->routeIs('admin.bookings.*'),
-            ])>
-            <x-heroicon-o-calendar-days class="size-5 shrink-0" aria-hidden="true" />
-            <span>Bookings</span>
-        </a>
         <a href="{{ route('admin.subscriptions.index') }}"
             @class([
                 'flex shrink-0 items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition',
@@ -51,6 +42,24 @@
             <span>Subscriptions</span>
         </a>
         @if (auth()->user()->isAdministrator())
+            <a href="{{ route('admin.contact-messages.index') }}"
+                @class([
+                    'flex shrink-0 items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition',
+                    'bg-brand-bright text-brand' => request()->routeIs('admin.contact-messages.*'),
+                    'text-secondary-surface hover:bg-secondary-surface/10' => ! request()->routeIs('admin.contact-messages.*'),
+                ])>
+                <x-heroicon-o-chat-bubble-left-right class="size-5 shrink-0" aria-hidden="true" />
+                <span>Contact messages</span>
+            </a>
+            <a href="{{ route('admin.quote-requests.index') }}"
+                @class([
+                    'flex shrink-0 items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition',
+                    'bg-brand-bright text-brand' => request()->routeIs('admin.quote-requests.*'),
+                    'text-secondary-surface hover:bg-secondary-surface/10' => ! request()->routeIs('admin.quote-requests.*'),
+                ])>
+                <x-heroicon-o-document-text class="size-5 shrink-0" aria-hidden="true" />
+                <span>Quote requests</span>
+            </a>
             <a href="{{ route('admin.users.index') }}"
                 @class([
                     'flex shrink-0 items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition',

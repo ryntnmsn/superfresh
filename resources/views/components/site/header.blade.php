@@ -6,7 +6,6 @@
 
         <nav aria-label="Hoofdnavigatie" class="font-subheading order-2 hidden items-center gap-x-5 text-sm text-brand/80 lg:order-2 lg:flex xl:gap-x-6">
             <a href="{{ route('home') }}" class="transition hover:text-brand">Home</a>
-            <a href="{{ route('schoonmaakdiensten') }}" class="transition hover:text-brand">Schoonmaakdiensten</a>
 
             <details class="group relative">
                 <summary class="flex cursor-pointer list-none items-center gap-1 transition hover:text-brand marker:hidden">
@@ -45,7 +44,6 @@
 
                 <nav aria-label="Mobiele navigatie" class="absolute right-0 top-full z-50 mt-3 w-72 max-w-[calc(100vw-3rem)] rounded-md border border-brand/10 bg-white p-3 text-sm text-brand shadow-lg">
                     <a href="{{ route('home') }}" class="block rounded px-3 py-2.5 transition hover:bg-[#7de9c0]">Home</a>
-                    <a href="{{ route('schoonmaakdiensten') }}" class="block rounded px-3 py-2.5 transition hover:bg-[#7de9c0]">Schoonmaakdiensten</a>
 
                     <details class="group/mobile">
                         <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-2.5 transition hover:bg-[#7de9c0] marker:hidden">

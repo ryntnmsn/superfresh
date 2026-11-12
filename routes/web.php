@@ -2,9 +2,11 @@
 
 use App\Models\Article;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ContactMessageController as AdminContactMessageController;
 use App\Http\Controllers\Admin\ArticleCategoryController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\QuoteRequestController as AdminQuoteRequestController;
 use App\Http\Controllers\QuoteRequestController;
 use App\Http\Controllers\PublicArticleController;
 use App\Http\Controllers\ContactController;
@@ -16,7 +18,6 @@ Route::view('/', 'welcome')->name('home');
 Route::get('/sitemap.xml', function (): Response {
     $urls = [
         route('home'),
-        route('schoonmaakdiensten'),
         route('kantoorschoonmaak'),
         route('schoonmaak-scholen'),
         route('airbnb-schoonmaak'),
@@ -25,6 +26,7 @@ Route::get('/sitemap.xml', function (): Response {
         route('werkgebied'),
         route('over-superfresh'),
         route('veelgestelde-vragen'),
+        route('privacyverklaring'),
         route('contact'),
         route('offerte-aanvragen'),
         route('tips-advies'),
@@ -40,7 +42,6 @@ Route::get('/sitemap.xml', function (): Response {
 Route::get('/robots.txt', function (): Response {
     return response("User-agent: *\nAllow: /\nSitemap: ".route('sitemap')."\n", 200, ['Content-Type' => 'text/plain']);
 })->name('robots');
-Route::view('/schoonmaakdiensten', 'pages.schoonmaakdiensten')->name('schoonmaakdiensten');
 Route::view('/kantoorschoonmaak', 'pages.kantoorschoonmaak')->name('kantoorschoonmaak');
 Route::view('/schoonmaak-scholen', 'pages.schoonmaak-scholen')->name('schoonmaak-scholen');
 Route::view('/airbnb-schoonmaak', 'pages.airbnb-schoonmaak')->name('airbnb-schoonmaak');
@@ -49,6 +50,7 @@ Route::view('/schoonmaak-vastgoed', 'pages.schoonmaak-vastgoed')->name('schoonma
 Route::view('/werkgebied', 'pages.werkgebied')->name('werkgebied');
 Route::view('/over-superfresh', 'pages.over-superfresh')->name('over-superfresh');
 Route::view('/veelgestelde-vragen', 'pages.veelgestelde-vragen')->name('veelgestelde-vragen');
+Route::view('/privacyverklaring', 'pages.privacyverklaring')->name('privacyverklaring');
 Route::get('/offerte-aanvragen', [QuoteRequestController::class, 'create'])->name('offerte-aanvragen');
 Route::post('/offerte-aanvragen', [QuoteRequestController::class, 'store'])->name('offerte-aanvragen.store')->middleware('throttle:5,1');
 Route::get('/contact', [ContactController::class, 'create'])->name('contact');
@@ -63,8 +65,12 @@ Route::post('/admin/login', [AuthController::class, 'store'])->name('admin.login
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (): void {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-    Route::view('/bookings', 'admin.bookings.index')->name('bookings.index');
     Route::view('/subscriptions', 'admin.subscriptions.index')->name('subscriptions.index');
+    Route::middleware('admin')->get('/contact-messages', [AdminContactMessageController::class, 'index'])->name('contact-messages.index');
+    Route::middleware('admin')->get('/quote-requests', [AdminQuoteRequestController::class, 'index'])->name('quote-requests.index');
+    Route::middleware('admin')->get('/quote-requests/{quoteRequest}/photos/{photoIndex}', [AdminQuoteRequestController::class, 'photo'])
+        ->whereNumber('photoIndex')
+        ->name('quote-requests.photos.show');
     Route::resource('articles', ArticleController::class)->except('show');
     Route::resource('article-categories', ArticleCategoryController::class)->except('show');
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');

@@ -36,7 +36,7 @@
                         </div>
                         <div>
                             <dt class="font-subheading text-sm text-brand">Adres</dt>
-                            <dd class="mt-1 leading-6 text-secondary-text/75">Caerus Tech B.V.<br>J.C. van Markenlaan 32<br>2285 VL Rijswijk</dd>
+                            <dd class="mt-1 leading-6 text-secondary-text/75">J.C. van Markenlaan 32<br>2285 VL Rijswijk</dd>
                         </div>
                         <div>
                             <dt class="font-subheading text-sm text-brand">Werkgebied</dt>
@@ -94,15 +94,10 @@
                                 </div>
 
                                 <div class="sm:col-span-2">
-                                    <label for="subject" class="mb-2 block text-sm font-medium text-brand">Onderwerp <span aria-hidden="true">*</span></label>
-                                    <input id="subject" name="subject" type="text" value="{{ old('subject') }}" required maxlength="255" @class(['w-full rounded border px-3.5 py-2.5 text-sm outline-none focus:ring-4 focus:ring-brand-bright/20', 'border-red-400 focus:border-red-500' => $errors->has('subject'), 'border-brand/20 focus:border-brand-bright' => ! $errors->has('subject')])>
-                                    @error('subject')<p class="mt-2 text-sm text-red-700">{{ $message }}</p>@enderror
-                                </div>
-
-                                <div class="sm:col-span-2">
                                     <label for="message" class="mb-2 block text-sm font-medium text-brand">Bericht <span aria-hidden="true">*</span></label>
                                     <textarea id="message" name="message" rows="6" maxlength="5000" required @class(['w-full rounded border px-3.5 py-2.5 text-sm outline-none focus:ring-4 focus:ring-brand-bright/20', 'border-red-400 focus:border-red-500' => $errors->has('message'), 'border-brand/20 focus:border-brand-bright' => ! $errors->has('message')])>{{ old('message') }}</textarea>
                                     @error('message')<p class="mt-2 text-sm text-red-700">{{ $message }}</p>@enderror
+                                    <p class="mt-2 text-sm leading-6 text-secondary-text/65">Gaat uw vraag over schoonmaak? Vermeld dan de postcode van de locatie, wat er schoongemaakt moet worden en wanneer u wilt starten.</p>
                                 </div>
                             </div>
 
@@ -112,6 +107,7 @@
                             </div>
                         </form>
                     @endif
+                    <p class="mt-5 text-sm leading-6 text-secondary-text/70">Lees in <a href="{{ route('privacyverklaring') }}" class="font-medium text-brand underline decoration-brand/40 underline-offset-4 hover:decoration-brand">onze privacyverklaring</a> hoe we met uw gegevens omgaan.</p>
                 </div>
             </div>
         </section>

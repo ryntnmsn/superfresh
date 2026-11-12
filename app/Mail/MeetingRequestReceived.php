@@ -24,7 +24,7 @@ class MeetingRequestReceived extends Mailable
     {
         return new Envelope(
             replyTo: [new Address($this->meetingRequest['email'], $this->meetingRequest['name'])],
-            subject: 'Aanvraag voor kennismaking via de website',
+            subject: 'Meeting request from the website',
         );
     }
 

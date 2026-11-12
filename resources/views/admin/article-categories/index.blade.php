@@ -6,7 +6,6 @@
     <div class="flex flex-wrap items-center justify-between gap-4">
         <div>
             <h1 class="font-heading text-2xl font-extrabold tracking-tight text-brand">Article categories</h1>
-            <p class="mt-1 text-sm text-secondary-text/70">Organize articles into categories.</p>
         </div>
         <a href="{{ route('admin.article-categories.create') }}" class="rounded bg-brand px-4 py-2.5 text-sm font-semibold text-secondary-surface hover:bg-brand/90">New category</a>
     </div>

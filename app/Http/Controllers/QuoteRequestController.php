@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Mail\QuoteRequestReceived;
+use App\Models\QuoteRequest as QuoteRequestRecord;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
+use RuntimeException;
+use Throwable;
 
 class QuoteRequestController extends Controller
 {
@@ -74,6 +79,33 @@ class QuoteRequestController extends Controller
 
         $photos = $validated['photos'] ?? [];
         unset($validated['photos']);
+
+        $storedPhotoPaths = [];
+
+        try {
+            foreach ($photos as $photo) {
+                if (! $photo instanceof UploadedFile) {
+                    continue;
+                }
+
+                $storedPath = $photo->store('quote-requests', 'local');
+
+                if (! is_string($storedPath)) {
+                    throw new RuntimeException('Unable to store a quote request photo.');
+                }
+
+                $storedPhotoPaths[] = $storedPath;
+            }
+
+            QuoteRequestRecord::create([
+                ...$validated,
+                'photos' => $storedPhotoPaths,
+            ]);
+        } catch (Throwable $exception) {
+            Storage::disk('local')->delete($storedPhotoPaths);
+
+            throw $exception;
+        }
 
         Mail::to(config('services.quote_requests.recipient'))
             ->send(new QuoteRequestReceived($validated, $photos));
