@@ -53,4 +53,16 @@ details.faq-accordion:not([open])::details-content {
     html {
         scroll-behavior: smooth;
     }
+
+    main > section[data-reveal='pending'] {
+        opacity: 0;
+        transform: translateY(1rem);
+        transition: opacity 500ms ease-out, transform 500ms ease-out;
+    }
+
+    main > section[data-reveal='visible'],
+    main > section[data-reveal='pending']:focus-within {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

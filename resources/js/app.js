@@ -9,6 +9,32 @@ if (appElement) {
     createApp(App).mount(appElement);
 }
 
+const pageSections = document.querySelectorAll('main > section');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+document.querySelectorAll('main > section:not(:first-child) img').forEach((image) => {
+    image.loading = 'lazy';
+});
+
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.dataset.reveal = 'visible';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.1,
+    });
+
+    pageSections.forEach((section) => {
+        section.dataset.reveal = 'pending';
+        sectionObserver.observe(section);
+    });
+}
+
 document.querySelectorAll('[data-quill-editor]').forEach((editorElement) => {
     const quill = new Quill(editorElement, {
         theme: 'snow',

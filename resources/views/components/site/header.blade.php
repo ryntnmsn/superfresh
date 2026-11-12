@@ -8,18 +8,18 @@
             <a href="{{ route('home') }}" class="transition hover:text-brand">Home</a>
 
             <details class="group relative">
-                <summary class="flex cursor-pointer list-none items-center gap-1 transition hover:text-brand marker:hidden">
-                    Voor wie
+                <summary class="flex cursor-pointer list-none items-center gap-1 transition hover:text-brand focus-visible:rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-bright marker:hidden">
+                    Schoonmaakdiensten
                     <svg class="size-3.5 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd" d="M5.22 7.47a.75.75 0 0 1 1.06 0L10 11.19l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 8.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                     </svg>
                 </summary>
-                <div class="absolute left-1/2 top-full z-40 mt-3 hidden w-72 -translate-x-1/2 rounded-md border border-brand/10 bg-white p-2 text-left shadow-lg group-open:block">
-                    <a href="{{ route('kantoorschoonmaak') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand">Kantoren</a>
-                    <a href="{{ route('schoonmaak-scholen') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand">Scholen</a>
-                    <a href="{{ route('airbnb-schoonmaak') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand">Airbnb &amp; short stay</a>
-                    <a href="{{ route('schoonmaak-huurwoningen') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand">Verhuurders &amp; vastgoedeigenaren</a>
-                    <a href="{{ route('schoonmaak-vastgoed') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand">Makelaars &amp; vastgoedbeheerders</a>
+                <div class="absolute left-1/2 top-full z-40 mt-3 hidden w-80 -translate-x-1/2 rounded-md border border-brand/10 bg-white p-2 text-left shadow-lg group-open:block">
+                    <a href="{{ route('kantoorschoonmaak') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand focus:bg-[#7de9c0] focus:outline-none">Kantoorschoonmaak</a>
+                    <a href="{{ route('schoonmaak-scholen') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand focus:bg-[#7de9c0] focus:outline-none">Schoonmaak voor scholen</a>
+                    <a href="{{ route('airbnb-schoonmaak') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand focus:bg-[#7de9c0] focus:outline-none">Airbnb &amp; short-stay schoonmaak</a>
+                    <a href="{{ route('schoonmaak-huurwoningen') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand focus:bg-[#7de9c0] focus:outline-none">Schoonmaak voor verhuurders</a>
+                    <a href="{{ route('schoonmaak-vastgoed') }}" class="block rounded-lg px-4 py-2.5 transition hover:bg-[#7de9c0] hover:text-brand focus:bg-[#7de9c0] focus:outline-none">Schoonmaak voor vastgoedprofessionals</a>
                 </div>
             </details>
 
@@ -30,7 +30,7 @@
         </nav>
 
         <div class="order-2 flex items-center gap-3 lg:order-3">
-            <x-site.button href="{{ route('offerte-aanvragen') }}">Offerte aanvragen</x-site.button>
+            <x-site.button href="{{ route('offerte-aanvragen') }}">Vraag een offerte aan</x-site.button>
 
             <details class="group relative lg:hidden">
                 <summary aria-label="Menu" class="flex size-10 cursor-pointer list-none items-center justify-center rounded border border-brand/20 text-brand transition hover:bg-secondary-surface marker:hidden">
@@ -46,18 +46,18 @@
                     <a href="{{ route('home') }}" class="block rounded px-3 py-2.5 transition hover:bg-[#7de9c0]">Home</a>
 
                     <details class="group/mobile">
-                        <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-2.5 transition hover:bg-[#7de9c0] marker:hidden">
-                            Voor wie
+                        <summary class="flex cursor-pointer list-none items-center justify-between rounded px-3 py-2.5 transition hover:bg-[#7de9c0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-bright marker:hidden">
+                            Schoonmaakdiensten
                             <svg class="size-3.5 transition-transform group-open/mobile:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.22 7.47a.75.75 0 0 1 1.06 0L10 11.19l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 8.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                             </svg>
                         </summary>
                         <div class="mt-1 space-y-1 pl-3">
-                            <a href="{{ route('kantoorschoonmaak') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0]">Kantoren</a>
-                            <a href="{{ route('schoonmaak-scholen') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0]">Scholen</a>
-                            <a href="{{ route('airbnb-schoonmaak') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0]">Airbnb &amp; short stay</a>
-                            <a href="{{ route('schoonmaak-huurwoningen') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0]">Verhuurders &amp; vastgoedeigenaren</a>
-                            <a href="{{ route('schoonmaak-vastgoed') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0]">Makelaars &amp; vastgoedbeheerders</a>
+                            <a href="{{ route('kantoorschoonmaak') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0] focus:bg-[#7de9c0] focus:outline-none">Kantoorschoonmaak</a>
+                            <a href="{{ route('schoonmaak-scholen') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0] focus:bg-[#7de9c0] focus:outline-none">Schoonmaak voor scholen</a>
+                            <a href="{{ route('airbnb-schoonmaak') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0] focus:bg-[#7de9c0] focus:outline-none">Airbnb &amp; short-stay schoonmaak</a>
+                            <a href="{{ route('schoonmaak-huurwoningen') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0] focus:bg-[#7de9c0] focus:outline-none">Schoonmaak voor verhuurders</a>
+                            <a href="{{ route('schoonmaak-vastgoed') }}" class="block rounded px-3 py-2 transition hover:bg-[#7de9c0] focus:bg-[#7de9c0] focus:outline-none">Schoonmaak voor vastgoedprofessionals</a>
                         </div>
                     </details>
 

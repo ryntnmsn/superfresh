@@ -47,6 +47,7 @@ Route::view('/schoonmaak-scholen', 'pages.schoonmaak-scholen')->name('schoonmaak
 Route::view('/airbnb-schoonmaak', 'pages.airbnb-schoonmaak')->name('airbnb-schoonmaak');
 Route::view('/schoonmaak-huurwoningen', 'pages.schoonmaak-huurwoningen')->name('schoonmaak-huurwoningen');
 Route::view('/schoonmaak-vastgoed', 'pages.schoonmaak-vastgoed')->name('schoonmaak-vastgoed');
+Route::permanentRedirect('/schoonmaakdiensten', '/#diensten')->name('schoonmaakdiensten.redirect');
 Route::view('/werkgebied', 'pages.werkgebied')->name('werkgebied');
 Route::view('/over-superfresh', 'pages.over-superfresh')->name('over-superfresh');
 Route::view('/veelgestelde-vragen', 'pages.veelgestelde-vragen')->name('veelgestelde-vragen');

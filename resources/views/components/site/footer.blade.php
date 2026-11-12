@@ -10,7 +10,6 @@
             <h2 class="font-heading text-base font-extrabold text-white">Navigatie</h2>
             <nav aria-label="Navigatie footer" class="font-subheading mt-4 flex flex-col items-start gap-3">
                 <a href="{{ route('home') }}" class="transition hover:text-white">Home</a>
-                <a href="{{ route('home') }}#diensten" class="transition hover:text-white">Voor wie</a>
                 <a href="{{ route('werkgebied') }}" class="transition hover:text-white">Werkgebied</a>
                 <a href="{{ route('over-superfresh') }}" class="transition hover:text-white">Over Superfresh</a>
                 <a href="{{ route('tips-advies') }}" class="transition hover:text-white">Tips &amp; advies</a>
