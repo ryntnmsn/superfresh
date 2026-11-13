@@ -28,12 +28,12 @@ class MeetingRequestController extends Controller
             'preferred_time' => ['nullable', 'date_format:H:i'],
             'additional_information' => ['nullable', 'string', 'max:5000'],
         ], [
-            'name.required' => 'Vul uw naam in.',
-            'email.required' => 'Vul uw e-mailadres in.',
-            'email.email' => 'Vul een geldig e-mailadres in.',
-            'preferred_date.date' => 'Vul een geldige datum in.',
-            'preferred_date.after_or_equal' => 'Kies vandaag of een datum in de toekomst.',
-            'preferred_time.date_format' => 'Vul een geldige tijd in.',
+            'name.required' => __('Vul uw naam in.'),
+            'email.required' => __('Vul uw e-mailadres in.'),
+            'email.email' => __('Vul een geldig e-mailadres in.'),
+            'preferred_date.date' => __('Vul een geldige datum in.'),
+            'preferred_date.after_or_equal' => __('Kies vandaag of een datum in de toekomst.'),
+            'preferred_time.date_format' => __('Vul een geldige tijd in.'),
         ]);
 
         Mail::to(config('services.quote_requests.recipient'))

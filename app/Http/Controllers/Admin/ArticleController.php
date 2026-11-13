@@ -66,6 +66,28 @@ class ArticleController extends Controller
         return redirect()->route('admin.articles.index')->with('success', 'Article updated.');
     }
 
+    public function duplicate(Article $article): RedirectResponse
+    {
+        $duplicateTitle = mb_substr($article->title, 0, 248).' (copy)';
+        $duplicate = $article->replicate(['slug', 'image', 'status']);
+        $duplicate->title = $duplicateTitle;
+        $duplicate->slug = $this->uniqueSlug($duplicateTitle);
+        $duplicate->status = 'draft';
+
+        if ($article->image && Storage::disk('public')->exists($article->image)) {
+            $extension = pathinfo($article->image, PATHINFO_EXTENSION);
+            $duplicateImage = 'articles/'.Str::uuid().($extension !== '' ? '.'.$extension : '');
+
+            if (Storage::disk('public')->copy($article->image, $duplicateImage)) {
+                $duplicate->image = $duplicateImage;
+            }
+        }
+
+        $duplicate->save();
+
+        return redirect()->route('admin.articles.index')->with('success', 'Article duplicated as a draft.');
+    }
+
     public function destroy(Article $article): RedirectResponse
     {
         if ($article->image) {

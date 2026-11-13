@@ -17,6 +17,9 @@
         <meta name="description" content="@yield('meta_description')">
     @endif
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @if (config('services.recaptcha.site_key'))
+        <script src="https://www.google.com/recaptcha/api.js?hl={{ app()->getLocale() }}" async defer></script>
+    @endif
 </head>
 <body class="flex min-h-screen flex-col bg-white font-sans text-brand antialiased">
     <x-site.header />

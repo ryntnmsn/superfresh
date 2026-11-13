@@ -3,18 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleCategory;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class PublicArticleController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
+        $selectedCategoryId = $request->integer('category') ?: null;
+
         return view('pages.tips-advies.index', [
             'articles' => Article::query()
                 ->with('category')
                 ->where('status', 'published')
+                ->when($selectedCategoryId, fn (Builder $query): Builder => $query->where('article_category_id', $selectedCategoryId))
                 ->latest()
-                ->paginate(9),
+                ->paginate(9)
+                ->withQueryString(),
+            'categories' => ArticleCategory::query()
+                ->orderBy('name')
+                ->get(),
+            'selectedCategoryId' => $selectedCategoryId,
         ]);
     }
 

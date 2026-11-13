@@ -54,6 +54,10 @@
                             <td class="px-5 py-4">
                                 <div class="flex justify-end gap-3">
                                     <a href="{{ route('admin.articles.edit', $article) }}" class="font-medium text-brand hover:underline">Edit</a>
+                                    <form method="POST" action="{{ route('admin.articles.duplicate', $article) }}">
+                                        @csrf
+                                        <button type="submit" class="font-medium text-brand hover:underline">Duplicate</button>
+                                    </form>
                                     <form method="POST" action="{{ route('admin.articles.destroy', $article) }}" onsubmit="return confirm('Delete this article?')">
                                         @csrf
                                         @method('DELETE')
