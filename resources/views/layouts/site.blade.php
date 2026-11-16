@@ -25,5 +25,18 @@
     <x-site.header />
     @yield('content')
     <x-site.footer />
+    <x-site.newsletter-popup />
+    <section id="cookie-consent" aria-labelledby="cookie-consent-heading" aria-describedby="cookie-consent-description" aria-hidden="true" class="fixed inset-x-0 bottom-0 z-50 hidden border-t border-brand/15 bg-white p-4 shadow-[0_-8px_30px_rgba(21,61,54,0.16)] sm:p-6">
+        <div class="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="max-w-3xl">
+                <h2 id="cookie-consent-heading" class="font-heading text-lg font-extrabold text-brand">{{ __('Cookies en privacy') }}</h2>
+                <p id="cookie-consent-description" class="mt-1 text-sm leading-6 text-secondary-text/75">{{ __('We gebruiken analytische cookies om het bezoek aan onze website te meten en te verbeteren. U kunt deze accepteren of weigeren. Lees meer in onze') }} <a href="{{ route('privacyverklaring') }}" class="underline decoration-brand/40 underline-offset-4 hover:decoration-brand">{{ __('privacyverklaring') }}</a>.</p>
+            </div>
+            <div class="flex shrink-0 flex-col gap-2 sm:flex-row">
+                <button type="button" data-cookie-consent="rejected" class="rounded border border-brand/20 bg-white px-4 py-2.5 text-sm font-bold text-brand transition hover:bg-secondary-surface focus:outline-none focus:ring-4 focus:ring-brand-bright/30">{{ __('Weigeren') }}</button>
+                <button type="button" data-cookie-consent="accepted" class="rounded bg-brand px-4 py-2.5 text-sm font-bold text-white transition hover:bg-brand/90 focus:outline-none focus:ring-4 focus:ring-brand-bright/40">{{ __('Accepteren') }}</button>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

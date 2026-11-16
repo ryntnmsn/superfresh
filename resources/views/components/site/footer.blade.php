@@ -40,7 +40,7 @@
             <h2 class="font-heading text-base font-extrabold text-white">{{ __('Juridisch') }}</h2>
             <nav aria-label="{{ __('Juridisch') }}" class="font-subheading mt-4 flex flex-col items-start gap-3">
                 <a href="{{ route('privacyverklaring') }}" class="transition hover:text-white">{{ __('Privacyverklaring') }}</a>
-                <a href="#cookiebeleid" class="transition hover:text-white">{{ __('Cookiebeleid') }}</a>
+                <a href="{{ route('cookiebeleid') }}" class="transition hover:text-white">{{ __('Cookiebeleid') }}</a>
             </nav>
         </section>
     </div>

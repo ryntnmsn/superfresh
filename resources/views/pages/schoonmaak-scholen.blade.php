@@ -7,7 +7,7 @@
 
 @section('content')
     <main class="flex-1" aria-label="{{ __('Schoonmaak voor scholen') }}">
-        <section class="relative isolate overflow-hidden bg-[#E5F5EB] bg-cover bg-center" style="background-image: url('{{ asset('images/superfresh-hero-bg.jpg') }}')">
+        <section class="relative isolate overflow-hidden bg-[#E5F5EB] bg-cover bg-center" style="background-image: url('{{ asset('images/superfresh-school-cleaning.jpg') }}')">
             <div class="mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8 lg:py-32">
                 <div class="max-w-3xl">
                     <p class="font-subheading text-sm uppercase tracking-[0.16em] text-brand/75">{{ __('Schoonmaak voor scholen') }}</p>
@@ -57,7 +57,7 @@
                         <p>{{ __('Daarnaast maken we afspraken over de schoonmaaktijden, schoolvakanties en de contactpersoon binnen uw organisatie. Heeft uw school specifieke aandachtspunten? Geef die vooraf door, zodat we ze kunnen meenemen in de offerte.') }}</p>
                     </div>
                 </div>
-                <img src="https://images.openai.com/static-rsc-4/HTXjbWQY6kt6KxeRyFuNjC-2w4Fbx8ASrVwBeer8Vq2Rwjpg8ZcSFbm1Ex9FRWGKo73_zJv7agJ7tS0ro3KiIuuBuwrIwpXDoNhXnKxLk45jHjix3ruBSNZAF3qe-jc6_2NdHrrTGUImNEl8HDYoe0btPKbCUMWWH4E_EQ4uw9o?purpose=inline" alt="{{ __('Een klaslokaal in een schoolgebouw') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
+                <img src="{{ asset('images/superfresh-school-schedule.jpg') }}" alt="{{ __('Een klaslokaal in een schoolgebouw') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
             </div>
         </section>
 
@@ -67,7 +67,7 @@
                     <h2 id="school-cost-heading" class="font-heading text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">{{ __('Wat bepaalt de kosten van schoolschoonmaak?') }}</h2>
                     <p class="mt-6 text-lg leading-8 text-secondary-text/75">{{ __('De kosten hangen onder meer af van de omvang van het gebouw, het aantal gebruikers en de schoonmaakfrequentie. Stuur ons de locatie, de geschatte oppervlakte en de werkzaamheden die u wilt uitbesteden. Daarmee kunnen we een gericht voorstel maken.') }}</p>
                 </div>
-                <img src="https://images.openai.com/static-rsc-4/UW86ErY3PpVvO3wIO1WBQ_UrP3NlZhP0mzsd50KYijs6UKtZf9G5odJfSoCtmuzkB2gAvlL1fqT-25vG8DrbMoALYZup8QxkIzqXl9qE4cjRwrDriBB-6oUD0CtAXrpyzZ12cxXwWJ7xhTSMxRlH6x2AEfWYy2tXUZqYPkwN5xs?purpose=inline" alt="{{ __('Een schone gemeenschappelijke ruimte') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
+                <img src="{{ asset('images/superfresh-school-cost.jpg') }}" alt="{{ __('Schoonmaakbenodigdheden in een klaslokaal') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
             </div>
         </section>
 

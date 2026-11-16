@@ -112,9 +112,9 @@
                     </div>
                 </div>
                 <div class="grid min-h-[360px] grid-cols-2 grid-rows-2 gap-3 overflow-hidden rounded-2xl lg:h-full">
-                    <img src="https://images.openai.com/static-rsc-4/UW86ErY3PpVvO3wIO1WBQ_UrP3NlZhP0mzsd50KYijs6UKtZf9G5odJfSoCtmuzkB2gAvlL1fqT-25vG8DrbMoALYZup8QxkIzqXl9qE4cjRwrDriBB-6oUD0CtAXrpyzZ12cxXwWJ7xhTSMxRlH6x2AEfWYy2tXUZqYPkwN5xs?purpose=inline" alt="{{ __('Professionele schoonmaak van een kantoorruimte') }}" class="col-span-1 row-span-2 h-full w-full rounded-2xl object-cover">
-                    <img src="https://images.openai.com/static-rsc-4/lg4hsWQ1X6p4kGZfaYBTceQ4pojmV7jOjhLkTxGQ06WSXBjKqAn9buvBxor0GpELcbAkKqN5nDn1Bx86O4BB2lg4gjtfY2-_lX3q41NiJIjUcH4uYRMGfwLdjbl5uSEanYNBd0Mv_xzjx7d_EcgajOio-DFr3RFtLfRjt72W3Lw?purpose=inline" alt="{{ __('Schoonmaakwerkzaamheden in een professionele omgeving') }}" class="h-full w-full rounded-2xl object-cover">
-                    <img src="https://images.openai.com/static-rsc-4/P-UkFe89ghyAeBAtGul4Ck3u5Sbkq4Tar0_hHIisHWIb7qnVbuXudQueT4V74gLGHi-c4j0dq0jGbqozzrksHvTZt_aWV8f3Pb50p1GifxcPnR8EKEtbMZntdOnf_pzA5jfn6nq_w9rjAkY4--oTDT2z5A51cK5VEPJqXcsSrfE?purpose=inline" alt="{{ __('Een professionele schoonmaak na verhuizing') }}" class="h-full w-full rounded-2xl object-cover">
+                    <img src="{{ asset('images/superfresh-home-image3.jpg') }}" alt="{{ __('Een professionele schoonmaak na verhuizing') }}" class="col-span-1 row-span-2 h-full w-full rounded-2xl object-cover">
+                    <img src="{{ asset('images/superfresh-home-image1.jpg') }}" alt="{{ __('Professionele schoonmaak van een kantoorruimte') }}" class="h-full w-full rounded-2xl object-cover">
+                    <img src="{{ asset('images/superfresh-home-image2.jpg') }}" alt="{{ __('Schoonmaakwerkzaamheden in een professionele omgeving') }}" class="h-full w-full rounded-2xl object-cover">
                 </div>
             </div>
         </section>

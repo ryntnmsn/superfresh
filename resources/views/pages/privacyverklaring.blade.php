@@ -6,7 +6,7 @@
 
 @section('content')
     <main class="flex-1" aria-label="{{ __('Privacyverklaring') }}">
-        <section class="relative isolate overflow-hidden bg-[#E5F5EB] bg-cover bg-center" style="background-image: url('{{ asset('images/superfresh-hero-bg.jpg') }}')">
+        <section class="relative isolate overflow-hidden bg-[#E5F5EB] bg-cover bg-center" style="background-image: url('{{ asset('images/superfresh-policy-page.jpg') }}')">
             <div class="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8 lg:py-24">
                 <div class="max-w-3xl">
                     <p class="font-subheading text-sm uppercase tracking-[0.16em] text-brand/75">{{ __('Privacy') }}</p>
@@ -37,6 +37,11 @@
                 <section aria-labelledby="privacy-retention-heading">
                     <h2 id="privacy-retention-heading" class="font-heading text-2xl font-extrabold text-brand">{{ __('Hoe lang bewaren we uw gegevens?') }}</h2>
                     <p class="mt-4 leading-7 text-secondary-text/75">{{ __('We bewaren uw gegevens zolang dat nodig is om uw aanvraag af te handelen en eventuele vervolgafspraken te behandelen. Daarna verwijderen we ze wanneer ze niet meer nodig zijn, tenzij we gegevens langer moeten bewaren om aan een wettelijke verplichting te voldoen of een geschil af te handelen.') }}</p>
+                </section>
+
+                <section aria-labelledby="privacy-newsletter-heading">
+                    <h2 id="privacy-newsletter-heading" class="font-heading text-2xl font-extrabold text-brand">{{ __('Nieuwsbrief') }}</h2>
+                    <p class="mt-4 leading-7 text-secondary-text/75">{{ __('Als u zich aanmeldt voor onze nieuwsbrief, bewaren we uw e-mailadres en het moment waarop u toestemming gaf. We gebruiken deze gegevens om uw aanmelding te beheren en u de nieuwsbrief te sturen. U kunt zich op elk moment afmelden door contact met ons op te nemen via') }} <a href="mailto:service@super-fresh.nl" class="text-brand underline underline-offset-4">service@super-fresh.nl</a>{{ __('. Na uw afmelding verwijderen we uw gegevens uit de actieve verzendlijst.') }}</p>
                 </section>
 
                 <section aria-labelledby="privacy-rights-heading">

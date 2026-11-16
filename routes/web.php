@@ -7,10 +7,12 @@ use App\Http\Controllers\Admin\ArticleCategoryController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\QuoteRequestController as AdminQuoteRequestController;
+use App\Http\Controllers\Admin\SubscriptionController as AdminSubscriptionController;
 use App\Http\Controllers\QuoteRequestController;
 use App\Http\Controllers\PublicArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MeetingRequestController;
+use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Middleware\VerifyRecaptcha;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -29,6 +31,7 @@ Route::get('/sitemap.xml', function (): Response {
         route('werkgebied'),
         route('veelgestelde-vragen'),
         route('privacyverklaring'),
+        route('cookiebeleid'),
         route('contact'),
         route('offerte-aanvragen'),
         route('tips-advies'),
@@ -59,6 +62,7 @@ Route::permanentRedirect('/schoonmaakdiensten', '/#diensten')->name('schoonmaakd
 Route::view('/werkgebied', 'pages.werkgebied')->name('werkgebied');
 Route::view('/veelgestelde-vragen', 'pages.veelgestelde-vragen')->name('veelgestelde-vragen');
 Route::view('/privacyverklaring', 'pages.privacyverklaring')->name('privacyverklaring');
+Route::view('/cookiebeleid', 'pages.cookiebeleid')->name('cookiebeleid');
 Route::get('/offerte-aanvragen', [QuoteRequestController::class, 'create'])->name('offerte-aanvragen');
 Route::post('/offerte-aanvragen', [QuoteRequestController::class, 'store'])->name('offerte-aanvragen.store')->middleware(['throttle:5,1', VerifyRecaptcha::class]);
 Route::get('/contact', [ContactController::class, 'create'])->name('contact');
@@ -67,13 +71,17 @@ Route::get('/kennismaking-plannen', [MeetingRequestController::class, 'create'])
 Route::post('/kennismaking-plannen', [MeetingRequestController::class, 'store'])->name('kennismaking-plannen.store')->middleware(['throttle:5,1', VerifyRecaptcha::class]);
 Route::get('/tips-advies', [PublicArticleController::class, 'index'])->name('tips-advies');
 Route::get('/tips-advies/{article:slug}', [PublicArticleController::class, 'show'])->name('tips-advies.show');
+Route::post('/nieuwsbrief/aanmelden', [NewsletterSubscriptionController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('newsletter.store');
 
 Route::get('/admin/login', [AuthController::class, 'create'])->name('admin.login');
 Route::post('/admin/login', [AuthController::class, 'store'])->name('admin.login.store');
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (): void {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-    Route::view('/subscriptions', 'admin.subscriptions.index')->name('subscriptions.index');
+    Route::middleware('admin')->get('/subscriptions', [AdminSubscriptionController::class, 'index'])->name('subscriptions.index');
+    Route::middleware('admin')->delete('/subscriptions/{subscription}', [AdminSubscriptionController::class, 'destroy'])->name('subscriptions.destroy');
     Route::middleware('admin')->get('/contact-messages', [AdminContactMessageController::class, 'index'])->name('contact-messages.index');
     Route::middleware('admin')->get('/quote-requests', [AdminQuoteRequestController::class, 'index'])->name('quote-requests.index');
     Route::middleware('admin')->get('/quote-requests/{quoteRequest}/photos/{photoIndex}', [AdminQuoteRequestController::class, 'photo'])

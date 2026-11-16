@@ -3,6 +3,106 @@ import App from './App.vue';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 
+const cookieConsentName = 'sf_cookie_consent';
+const cookieConsentBanner = document.getElementById('cookie-consent');
+
+function getCookie(name) {
+    const cookie = document.cookie
+        .split('; ')
+        .find((entry) => entry.startsWith(`${name}=`));
+
+    return cookie ? decodeURIComponent(cookie.split('=').slice(1).join('=')) : null;
+}
+
+function loadGoogleTagManager() {
+    if (document.getElementById('google-tag-manager')) {
+        return;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+    const tagManagerScript = document.createElement('script');
+    tagManagerScript.id = 'google-tag-manager';
+    tagManagerScript.async = true;
+    tagManagerScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TBTS34FH';
+    document.head.append(tagManagerScript);
+}
+
+if (cookieConsentBanner) {
+    const consentChoice = getCookie(cookieConsentName);
+
+    if (consentChoice === 'accepted') {
+        loadGoogleTagManager();
+    } else if (!['accepted', 'rejected'].includes(consentChoice)) {
+        cookieConsentBanner.classList.remove('hidden');
+        cookieConsentBanner.setAttribute('aria-hidden', 'false');
+    }
+
+    cookieConsentBanner.querySelectorAll('[data-cookie-consent]').forEach((button) => {
+        button.addEventListener('click', () => {
+            const choice = button.dataset.cookieConsent;
+            const secureAttribute = window.location.protocol === 'https:' ? '; Secure' : '';
+
+            document.cookie = `${cookieConsentName}=${choice}; Max-Age=31536000; Path=/; SameSite=Lax${secureAttribute}`;
+            cookieConsentBanner.classList.add('hidden');
+            cookieConsentBanner.setAttribute('aria-hidden', 'true');
+
+            if (choice === 'accepted') {
+                loadGoogleTagManager();
+            }
+        });
+    });
+
+    document.querySelectorAll('[data-open-cookie-consent]').forEach((button) => {
+        button.addEventListener('click', () => {
+            cookieConsentBanner.classList.remove('hidden');
+            cookieConsentBanner.setAttribute('aria-hidden', 'false');
+            cookieConsentBanner.querySelector('[data-cookie-consent="rejected"]')?.focus();
+        });
+    });
+}
+
+const newsletterPopup = document.getElementById('newsletter-popup');
+
+if (newsletterPopup instanceof HTMLDialogElement) {
+    const dismissalKey = 'sf_newsletter_popup_dismissed';
+    const hasSubscribed = Boolean(document.getElementById('newsletter-subscription-success'));
+    const hasErrors = newsletterPopup.dataset.hasErrors === 'true';
+
+    const wasDismissed = () => {
+        try {
+            return window.sessionStorage.getItem(dismissalKey) === 'true';
+        } catch {
+            return false;
+        }
+    };
+
+    const rememberDismissal = () => {
+        try {
+            window.sessionStorage.setItem(dismissalKey, 'true');
+        } catch {
+            // The popup can still be dismissed for the current page if storage is unavailable.
+        }
+    };
+
+    newsletterPopup.addEventListener('close', rememberDismissal);
+    newsletterPopup.querySelector('[data-newsletter-dismiss]')?.addEventListener('click', () => newsletterPopup.close());
+
+    if (hasSubscribed) {
+        rememberDismissal();
+        newsletterPopup.showModal();
+    } else if (hasErrors) {
+        newsletterPopup.showModal();
+    } else if (!wasDismissed()) {
+        window.setTimeout(() => {
+            if (!wasDismissed() && !newsletterPopup.open) {
+                newsletterPopup.showModal();
+            }
+        }, 10000);
+    }
+}
+
 const appElement = document.getElementById('app');
 
 if (appElement) {

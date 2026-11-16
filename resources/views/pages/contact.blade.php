@@ -4,7 +4,7 @@
 
 @section('content')
     <main class="flex-1" aria-label="{{ __('Contact') }}">
-        <section class="relative isolate overflow-hidden bg-[#E5F5EB] bg-cover bg-center" style="background-image: url('{{ asset('images/superfresh-hero-bg.jpg') }}')">
+        <section class="relative isolate overflow-hidden bg-[#E5F5EB] bg-cover bg-center" style="background-image: url('{{ asset('images/superfresh-contact-us.jpg') }}')">
             <div class="mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8 lg:py-32">
                 <div class="max-w-3xl">
                     <p class="font-subheading text-sm uppercase tracking-[0.16em] text-brand/75">{{ __('Contact') }}</p>

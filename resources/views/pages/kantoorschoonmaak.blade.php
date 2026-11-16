@@ -7,7 +7,7 @@
 
 @section('content')
     <main class="flex-1" aria-label="{{ __('Kantoorschoonmaak') }}">
-        <section class="relative isolate overflow-hidden bg-[#E5F5EB] bg-cover bg-center" style="background-image: url('{{ asset('images/superfresh-hero-bg.jpg') }}')">
+        <section class="relative isolate overflow-hidden bg-[#E5F5EB] bg-cover bg-center" style="background-image: url('{{ asset('images/superfresh-office-cleaning.jpg') }}')">
             <div class="mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8 lg:py-32">
                 <div class="max-w-3xl">
                     <p class="font-subheading text-sm uppercase tracking-[0.16em] text-brand/75">{{ __('Kantoorschoonmaak') }}</p>
@@ -60,7 +60,7 @@
                         <p>{{ __('Daarom kijken we naar het gebruik van de ruimtes, de bezetting en uw wensen. Ook het schoonmaakmoment en de toegang tot het pand spreken we vooraf af. Zo weet u wat er wordt schoongemaakt en wanneer.') }}</p>
                     </div>
                 </div>
-                <img src="https://images.openai.com/static-rsc-4/GeQnPAFItM0zaQiSRH17oEes5tUYn4p8dllmbH3W1zq18dybbrRZk13hZjg50YV1d1OXRHKhsV_aOhX71OfzsAL39juNxvdhbhGHcyca3aGR9_6PxmcHXxSpcpH6Oloz5-_1U5AKzNhYq8sHht9VA2xVPz7MfIo3n_bBtkxzFBs?purpose=inline" alt="{{ __('Een lichte, verzorgde kantoorwerkplek') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
+                <img src="{{ asset('images/superfresh-office-schedule.jpg') }}" alt="{{ __('Schoonmaakbenodigdheden bij een werkplanning') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
             </div>
         </section>
 
@@ -70,7 +70,7 @@
                     <h2 id="cleaning-cost-heading" class="font-heading text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">{{ __('Wat kost kantoorschoonmaak?') }}</h2>
                     <p class="mt-6 text-lg leading-8 text-secondary-text/75">{{ __('De prijs hangt af van de oppervlakte, het aantal ruimtes, de werkzaamheden en de schoonmaakfrequentie. Vermeld bij uw aanvraag ook eventuele bijzonderheden, zoals meerdere verdiepingen of veel sanitair. Op basis daarvan stellen we een offerte op.') }}</p>
                 </div>
-                <img src="https://images.openai.com/static-rsc-4/UW86ErY3PpVvO3wIO1WBQ_UrP3NlZhP0mzsd50KYijs6UKtZf9G5odJfSoCtmuzkB2gAvlL1fqT-25vG8DrbMoALYZup8QxkIzqXl9qE4cjRwrDriBB-6oUD0CtAXrpyzZ12cxXwWJ7xhTSMxRlH6x2AEfWYy2tXUZqYPkwN5xs?purpose=inline" alt="{{ __('Een professioneel onderhouden kantoorinterieur') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
+                <img src="{{ asset('images/superfresh-office-cost.jpg') }}" alt="{{ __('Een modern kantoor met nette werkplekken') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
             </div>
         </section>
 
