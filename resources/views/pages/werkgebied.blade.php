@@ -2,7 +2,7 @@
 
 @section('title', __('Werkgebied'))
 @section('seo_title', 'Werkgebied schoonmaak: Den Haag en omgeving | Superfresh')
-@section('meta_description', 'Superfresh maakt kantoren, scholen en verhuurpanden schoon in Den Haag, Rotterdam, Leiden, Delft en Rijswijk. Vraag naar de planning voor uw locatie.')
+@section('meta_description', 'Superfresh maakt kantoren, scholen en verhuurpanden schoon in Den Haag, Rotterdam, Leiden, Delft, Rijswijk, Schiedam en Leidschendam-Voorburg. Vraag naar de planning voor uw locatie.')
 
 @section('content')
     <main class="flex-1" aria-label="{{ __('Werkgebied') }}">
@@ -11,7 +11,7 @@
                 <div class="max-w-3xl">
                     <p class="font-subheading text-sm uppercase tracking-[0.16em] text-brand/75">{{ __('Werkgebied') }}</p>
                     <h1 class="font-heading mt-4 text-4xl font-extrabold tracking-tight text-brand sm:text-5xl lg:text-6xl">{{ __('Schoonmaak in Den Haag en omgeving') }}</h1>
-                    <p class="mt-6 max-w-2xl text-lg leading-8 text-secondary-text/80">{{ __('Superfresh maakt kantoren, scholen, huurwoningen en vakantieverblijven schoon in Den Haag, Rotterdam, Leiden, Delft en Rijswijk.') }}</p>
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-secondary-text/80">{{ __('Superfresh maakt kantoren, scholen, huurwoningen en vakantieverblijven schoon in Den Haag, Rotterdam, Leiden, Delft, Rijswijk, Schiedam en Leidschendam-Voorburg.') }}</p>
 
                     <div class="mt-6 max-w-2xl rounded-md border border-brand/10 bg-white/80 px-4 py-3">
                         <h2 class="font-heading text-lg font-bold text-brand">{{ __('Vaak binnen 48 uur starten') }}</h2>
@@ -33,9 +33,9 @@
                     <p class="mt-5 text-lg leading-8 text-secondary-text/75">{{ __('U kunt bij ons terecht voor eenmalige schoonmaak en schoonmaak op vaste momenten.') }}</p>
                 </div>
 
-                <ul class="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-3 text-sm text-secondary-text/75 sm:grid-cols-3 lg:grid-cols-5">
-                    @foreach (['Den Haag', 'Rotterdam', 'Leiden', 'Delft', 'Rijswijk'] as $location)
-                        <li class="rounded-md border border-brand/10 bg-white/75 px-4 py-3 font-semibold">{{ $location }}</li>
+                <ul class="mx-auto mt-8 grid max-w-6xl grid-cols-2 gap-3 text-sm text-secondary-text/75 sm:grid-cols-3 lg:grid-cols-8">
+                    @foreach (['Den Haag', 'Rotterdam', 'Leiden', 'Delft', 'Rijswijk', 'Schiedam', 'Leidschendam-Voorburg'] as $index => $location)
+                        <li @class(['flex min-h-12 items-center justify-center rounded-md border border-brand/10 bg-white/75 px-4 py-3 text-center font-semibold lg:col-span-2', 'lg:col-start-2' => $index === 4, 'lg:col-start-4' => $index === 5, 'lg:col-start-6' => $index === 6])>{{ $location }}</li>
                     @endforeach
                 </ul>
             </div>

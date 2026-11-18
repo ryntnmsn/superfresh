@@ -53,7 +53,7 @@
                     </svg>
                 </summary>
 
-                <nav aria-label="{{ __('Mobiele navigatie') }}" class="absolute right-0 top-full z-50 mt-3 w-72 max-w-[calc(100vw-3rem)] rounded-md border border-brand/10 bg-white p-3 text-sm text-brand shadow-lg">
+                <nav aria-label="{{ __('Mobiele navigatie') }}" class="absolute left-0 top-full z-50 mt-3 w-72 max-w-[calc(100vw-3rem)] rounded-md border border-brand/10 bg-white p-3 text-sm text-brand shadow-lg min-[641px]:left-auto min-[641px]:right-0">
                     <a href="{{ route('home') }}" class="block rounded px-3 py-2.5 transition hover:bg-[#7de9c0]">{{ __('Home') }}</a>
 
                     <details class="group/mobile">
