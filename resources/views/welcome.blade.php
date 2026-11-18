@@ -128,9 +128,9 @@
                     <p class="mt-6 text-lg leading-8 text-secondary-text/75">{{ __('We maken kantoren, scholen en verhuurpanden schoon in Den Haag en omliggende steden. Ook voor Airbnb- en short-stay schoonmaak kunt u bij ons terecht.') }}</p>
                 </div>
 
-                <ul class="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-3 text-sm text-secondary-text/75 sm:grid-cols-3 lg:grid-cols-5">
-                    @foreach (['Den Haag', 'Rotterdam', 'Leiden', 'Delft', 'Rijswijk'] as $location)
-                        <li class="rounded-md border border-brand/10 bg-white/75 px-4 py-3 font-semibold">{{ $location }}</li>
+                <ul class="mx-auto mt-8 grid max-w-6xl grid-cols-2 gap-3 text-sm text-secondary-text/75 sm:grid-cols-3 lg:grid-cols-8">
+                    @foreach (['Den Haag', 'Rotterdam', 'Leiden', 'Delft', 'Rijswijk', 'Schiedam', 'Leidschendam-Voorburg'] as $index => $location)
+                        <li @class(['flex min-h-12 items-center justify-center rounded-md border border-brand/10 bg-white/75 px-4 py-3 text-center font-semibold lg:col-span-2', 'lg:col-start-2' => $index === 4, 'lg:col-start-4' => $index === 5, 'lg:col-start-6' => $index === 6])>{{ $location }}</li>
                     @endforeach
                 </ul>
 
