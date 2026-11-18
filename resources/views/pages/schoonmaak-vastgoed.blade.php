@@ -70,7 +70,7 @@
                     <h2 id="property-cost-heading" class="font-heading text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">{{ __('Wat bepaalt de prijs van vastgoedschoonmaak?') }}</h2>
                     <p class="mt-6 text-lg leading-8 text-secondary-text/75">{{ __('De prijs wordt bepaald door de oppervlakte, de staat van het pand en de werkzaamheden. Geef eventuele deadlines direct door, zoals de komst van de fotograaf of een geplande overdracht. Op basis van de opdracht stellen we een offerte op.') }}</p>
                 </div>
-                <img src="https://images.openai.com/static-rsc-4/P-UkFe89ghyAeBAtGul4Ck3u5Sbkq4Tar0_hHIisHWIb7qnVbuXudQueT4V74gLGHi-c4j0dq0jGbqozzrksHvTZt_aWV8f3Pb50p1GifxcPnR8EKEtbMZntdOnf_pzA5jfn6nq_w9rjAkY4--oTDT2z5A51cK5VEPJqXcsSrfE?purpose=inline" alt="{{ __('Een schoon en verzorgd pandinterieur') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
+                <img src="{{ asset('images/superfresh-property-cost.jpg') }}" alt="{{ __('Een schoon en verzorgd pandinterieur') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
             </div>
         </section>
 

@@ -4,18 +4,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="canonical" href="@yield('canonical_url', url()->current())">
     <title>
         @hasSection('seo_title')
             @yield('seo_title')
         @else
-            @yield('title', 'Home')
+            @yield('title', 'Superfresh schoonmaakdiensten')
         @endif
-        · {{ config('app.name', 'Super Fresh') }}
+        · {{ config('app.name') === 'Laravel' ? 'Superfresh' : config('app.name', 'Superfresh') }}
     </title>
-    @hasSection('meta_description')
-        <meta name="description" content="@yield('meta_description')">
-    @endif
+    <meta name="description" content="@yield('meta_description', 'Professionele schoonmaak voor bedrijven en verhuurpanden in Den Haag en omgeving. Bekijk onze diensten of vraag een vrijblijvende offerte aan bij Superfresh.')">
+    <meta name="robots" content="@yield('meta_robots', 'index, follow')">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:site_name" content="{{ config('app.name') === 'Laravel' ? 'Superfresh' : config('app.name', 'Superfresh') }}">
+    <meta property="og:title" content="@yield('seo_title', 'Professionele schoonmaak in Den Haag | Superfresh')">
+    <meta property="og:description" content="@yield('meta_description', 'Professionele schoonmaak voor bedrijven en verhuurpanden in Den Haag en omgeving. Bekijk onze diensten of vraag een vrijblijvende offerte aan bij Superfresh.')">
+    <meta property="og:url" content="@yield('canonical_url', url()->current())">
+    <meta name="twitter:card" content="@yield('twitter_card', 'summary')">
+    <meta name="twitter:title" content="@yield('seo_title', 'Professionele schoonmaak in Den Haag | Superfresh')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Professionele schoonmaak voor bedrijven en verhuurpanden in Den Haag en omgeving. Bekijk onze diensten of vraag een vrijblijvende offerte aan bij Superfresh.')">
+    @yield('social_image')
+    @php($businessStructuredData = [
+        '@context' => 'https://schema.org',
+        '@type' => 'ProfessionalService',
+        'name' => 'Superfresh',
+        'url' => url('/'),
+        'logo' => asset('favicon.png'),
+        'telephone' => '+31705680983',
+        'areaServed' => ['Den Haag', 'Rijswijk', 'Delft', 'Leiden', 'Rotterdam'],
+    ])
+    <script type="application/ld+json">@json($businessStructuredData)</script>
+    @yield('structured_data')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @if (config('services.recaptcha.site_key'))
         <script src="https://www.google.com/recaptcha/api.js?hl={{ app()->getLocale() }}" async defer></script>

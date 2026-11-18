@@ -59,7 +59,7 @@
                         <p>{{ __('Verhuurt u een woning voor langere tijd? Bekijk ook onze') }} <a href="{{ route('schoonmaak-huurwoningen') }}" class="text-brand underline decoration-brand/40 underline-offset-4 hover:decoration-brand">{{ __('schoonmaak voor verhuurders') }}</a>.</p>
                     </div>
                 </div>
-                <img src="https://images.openai.com/static-rsc-4/ytsQ0t3-9ylHV360WoAuEvjKuu0OgqIchLIJ_0rCrMknXuLECFoOIezQzSx2TFxol5s-05vicECxAtROAdWthWAD-5vZ4El65Z6Ob7nCyFanCMI-pLPr_ImewdMPwRLiVEsh4_ovX7B7UnoD1tb1dsgqufYrIb_tMjH-kvKof0g?purpose=inline" alt="{{ __('Een verzorgde short-stay accommodatie') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
+                <img src="{{ asset('images/superfresh-shortstay-cleaning.jpg') }}" alt="{{ __('Een verzorgde short-stay accommodatie') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
             </div>
         </section>
 
@@ -69,7 +69,7 @@
                     <h2 id="airbnb-cost-heading" class="font-heading text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">{{ __('Wat kost Airbnb-schoonmaak?') }}</h2>
                     <p class="mt-6 text-lg leading-8 text-secondary-text/75">{{ __('De prijs hangt af van het aantal kamers, de grootte van de accommodatie en de werkzaamheden. Ook de frequentie en beschikbare tijd tussen verblijven nemen we mee in de offerte.') }}</p>
                 </div>
-                <img src="https://images.openai.com/static-rsc-4/P-UkFe89ghyAeBAtGul4Ck3u5Sbkq4Tar0_hHIisHWIb7qnVbuXudQueT4V74gLGHi-c4j0dq0jGbqozzrksHvTZt_aWV8f3Pb50p1GifxcPnR8EKEtbMZntdOnf_pzA5jfn6nq_w9rjAkY4--oTDT2z5A51cK5VEPJqXcsSrfE?purpose=inline" alt="{{ __('Een schoon en verzorgd interieur') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
+                <img src="{{ asset('images/superfresh-shortstay-bedroom.jpg') }}" alt="{{ __('Een schoon en verzorgd interieur') }}" class="aspect-[4/3] w-full rounded-xl object-cover shadow-sm">
             </div>
         </section>
 

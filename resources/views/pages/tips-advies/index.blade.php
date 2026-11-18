@@ -1,6 +1,9 @@
 @extends('layouts.site')
 
 @section('title', __('Tips & advies'))
+@section('seo_title', 'Schoonmaaktips en advies voor bedrijven | Superfresh')
+@section('meta_description', 'Praktische tips over professionele schoonmaak, vastgoedonderhoud en het verzorgen van zakelijke en verhuurlocaties van Superfresh.')
+@section('meta_robots', $articles->currentPage() > 1 ? 'noindex, follow' : 'index, follow')
 
 @section('content')
     <main class="flex-1" aria-label="{{ __('Tips en advies') }}">

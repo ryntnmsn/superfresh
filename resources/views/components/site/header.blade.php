@@ -1,10 +1,12 @@
 <header class="border-b border-brand/10 bg-white">
-    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-4 px-6 py-4 lg:px-8">
+    <div class="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] grid-rows-[auto_auto] gap-x-2 gap-y-3 px-4 py-4 min-[641px]:flex min-[641px]:flex-nowrap min-[641px]:justify-between min-[641px]:gap-x-4 min-[641px]:px-6 xl:px-8">
+        <div class="col-start-2 row-start-2 flex w-auto shrink-0 items-center justify-center min-[641px]:col-auto min-[641px]:row-auto min-[641px]:justify-self-auto">
             <a href="{{ route('home') }}" aria-label="Superfresh home" class="shrink-0">
-            <img src="{{ asset('images/super-fresh-logo-dark.png') }}" alt="Superfresh" class="h-auto w-[132px] max-w-full sm:w-36 lg:w-40">
-        </a>
+                <img src="{{ asset('images/super-fresh-logo-dark.png') }}" alt="Superfresh" class="block h-auto w-28 max-w-full min-[400px]:w-36 min-[641px]:w-44 xl:w-48">
+            </a>
+        </div>
 
-        <nav aria-label="{{ __('Hoofdnavigatie') }}" class="font-subheading order-2 hidden items-center gap-x-5 text-sm text-brand/80 lg:order-2 lg:flex xl:gap-x-6">
+        <nav aria-label="{{ __('Hoofdnavigatie') }}" class="font-subheading order-3 hidden items-center gap-x-5 text-sm text-brand/80 xl:order-2 xl:flex xl:gap-x-6">
             <a href="{{ route('home') }}" class="transition hover:text-brand">{{ __('Home') }}</a>
 
             <details class="group relative">
@@ -28,15 +30,20 @@
             <a href="{{ route('contact') }}" class="transition hover:text-brand">{{ __('Contact') }}</a>
         </nav>
 
-        <div class="order-2 flex items-center gap-3 lg:order-3">
-            <form method="POST" action="{{ route('language.switch') }}" aria-label="{{ __('Taal kiezen') }}" class="flex items-center rounded border border-brand/20 p-0.5 text-xs font-semibold">
+        <div class="contents min-[641px]:order-2 min-[641px]:flex min-[641px]:w-auto min-[641px]:items-center min-[641px]:justify-end min-[641px]:gap-3 xl:order-3">
+            <form method="POST" action="{{ route('language.switch') }}" aria-label="{{ __('Taal kiezen') }}" class="col-start-3 row-start-1 flex items-center justify-self-end rounded border border-brand/20 p-0.5 text-xs font-semibold min-[641px]:col-auto min-[641px]:row-auto min-[641px]:justify-self-auto">
                 @csrf
                 <button type="submit" name="locale" value="nl" @class(['rounded px-2 py-1 transition', 'bg-brand text-white' => app()->isLocale('nl'), 'text-brand hover:bg-secondary-surface' => app()->isLocale('en')]) aria-pressed="{{ app()->isLocale('nl') ? 'true' : 'false' }}">NL</button>
                 <button type="submit" name="locale" value="en" @class(['rounded px-2 py-1 transition', 'bg-brand text-white' => app()->isLocale('en'), 'text-brand hover:bg-secondary-surface' => app()->isLocale('nl')]) aria-pressed="{{ app()->isLocale('en') ? 'true' : 'false' }}">EN</button>
             </form>
-            <x-site.button href="{{ route('offerte-aanvragen') }}">{{ __('Vraag een offerte aan') }}</x-site.button>
+            <x-site.button href="{{ route('offerte-aanvragen') }}" aria-label="{{ __('Vraag een offerte aan') }}" class="col-start-3 row-start-2 inline-flex h-[40px] w-[40px] justify-self-end p-0 min-[641px]:col-auto min-[641px]:row-auto min-[641px]:h-auto min-[641px]:w-auto min-[641px]:px-4 min-[641px]:py-2.5 min-[641px]:text-sm min-[641px]:justify-self-auto">
+                <svg class="h-[24px] w-[24px] min-[641px]:hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z" />
+                </svg>
+                <span class="sr-only min-[641px]:not-sr-only">{{ __('Vraag een offerte aan') }}</span>
+            </x-site.button>
 
-            <details class="group relative lg:hidden">
+            <details class="group relative col-start-1 row-start-2 justify-self-start min-[641px]:col-auto min-[641px]:row-auto min-[641px]:justify-self-auto xl:hidden">
                 <summary aria-label="Menu" class="flex size-10 cursor-pointer list-none items-center justify-center rounded border border-brand/20 text-brand transition hover:bg-secondary-surface marker:hidden">
                     <svg class="size-5 group-open:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                         <path d="M4 6h16M4 12h16M4 18h16" />

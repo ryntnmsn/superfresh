@@ -34,6 +34,7 @@ Route::get('/sitemap.xml', function (): Response {
         route('cookiebeleid'),
         route('contact'),
         route('offerte-aanvragen'),
+        route('kennismaking-plannen'),
         route('tips-advies'),
     ];
     $articleUrls = Article::query()

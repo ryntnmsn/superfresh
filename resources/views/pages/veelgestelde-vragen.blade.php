@@ -1,6 +1,8 @@
 @extends('layouts.site')
 
 @section('title', __('Veelgestelde vragen'))
+@section('seo_title', 'Veelgestelde vragen over schoonmaak | Superfresh')
+@section('meta_description', 'Bekijk antwoorden over de schoonmaakdiensten, planning en werkwijze van Superfresh in Den Haag en omgeving.')
 
 @section('content')
     <main class="flex-1" aria-label="{{ __('Veelgestelde vragen') }}">

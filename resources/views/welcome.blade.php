@@ -1,6 +1,7 @@
 @extends('layouts.site')
 
 @section('title', __('Home'))
+@section('seo_title', 'Schoonmaakbedrijf Den Haag en omgeving | Superfresh')
 @section('meta_description', 'Schoonmaak voor kantoren, scholen, huurwoningen, short-stay accommodaties en vastgoed in Den Haag en omgeving. Vraag een offerte aan bij Superfresh.')
 
 @section('content')
@@ -32,7 +33,7 @@
 
                 <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-6">
                     <a href="{{ route('kantoorschoonmaak') }}" class="group flex h-full flex-col overflow-hidden rounded-md border border-brand/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brand-bright/40 xl:col-span-2">
-                        <img src="https://images.openai.com/static-rsc-4/GeQnPAFItM0zaQiSRH17oEes5tUYn4p8dllmbH3W1zq18dybbrRZk13hZjg50YV1d1OXRHKhsV_aOhX71OfzsAL39juNxvdhbhGHcyca3aGR9_6PxmcHXxSpcpH6Oloz5-_1U5AKzNhYq8sHht9VA2xVPz7MfIo3n_bBtkxzFBs?purpose=inline" alt="{{ __('Professionele kantoorinrichting') }}" class="h-52 w-full object-cover">
+                        <img src="{{ asset('images/superfresh-home-office-service.jpg') }}" alt="{{ __('Professionele kantoorinrichting') }}" class="h-52 w-full object-cover">
                         <div class="flex flex-1 flex-col p-6">
                             <h3 class="font-heading text-xl font-extrabold text-brand">{{ __('Kantoorschoonmaak') }}</h3>
                             <p class="mt-3 flex-1 text-sm leading-6 text-secondary-text/75">{{ __('Van werkplekken en vergaderruimtes tot keuken en sanitair. Wij maken uw kantoor schoon op de afgesproken momenten.') }}</p>
@@ -41,7 +42,7 @@
                     </a>
 
                     <a href="{{ route('schoonmaak-scholen') }}" class="group flex h-full flex-col overflow-hidden rounded-md border border-brand/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brand-bright/40 xl:col-span-2">
-                        <img src="https://images.openai.com/static-rsc-4/HTXjbWQY6kt6KxeRyFuNjC-2w4Fbx8ASrVwBeer8Vq2Rwjpg8ZcSFbm1Ex9FRWGKo73_zJv7agJ7tS0ro3KiIuuBuwrIwpXDoNhXnKxLk45jHjix3ruBSNZAF3qe-jc6_2NdHrrTGUImNEl8HDYoe0btPKbCUMWWH4E_EQ4uw9o?purpose=inline" alt="{{ __('Een klaslokaal in een school') }}" class="h-52 w-full object-cover">
+                        <img src="{{ asset('images/superfresh-home-school-service.jpg') }}" alt="{{ __('Een klaslokaal in een school') }}" class="h-52 w-full object-cover">
                         <div class="flex flex-1 flex-col p-6">
                             <h3 class="font-heading text-xl font-extrabold text-brand">{{ __('Schoonmaak voor scholen') }}</h3>
                             <p class="mt-3 flex-1 text-sm leading-6 text-secondary-text/75">{{ __('Schoonmaak van klaslokalen, gangen en sanitair, met een planning die rekening houdt met het lesrooster en het gebruik van uw schoolgebouw.') }}</p>
@@ -50,7 +51,7 @@
                     </a>
 
                     <a href="{{ route('airbnb-schoonmaak') }}" class="group flex h-full flex-col overflow-hidden rounded-md border border-brand/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brand-bright/40 xl:col-span-2">
-                        <img src="https://images.openai.com/static-rsc-4/ytsQ0t3-9ylHV360WoAuEvjKuu0OgqIchLIJ_0rCrMknXuLECFoOIezQzSx2TFxol5s-05vicECxAtROAdWthWAD-5vZ4El65Z6Ob7nCyFanCMI-pLPr_ImewdMPwRLiVEsh4_ovX7B7UnoD1tb1dsgqufYrIb_tMjH-kvKof0g?purpose=inline" alt="{{ __('Een uitnodigende vakantiewoning') }}" class="h-52 w-full object-cover">
+                        <img src="{{ asset('images/superfresh-home-shortstay-service.jpg') }}" alt="{{ __('Een uitnodigende vakantiewoning') }}" class="h-52 w-full object-cover">
                         <div class="flex flex-1 flex-col p-6">
                             <h3 class="font-heading text-xl font-extrabold text-brand">{{ __('Airbnb & short-stay schoonmaak') }}</h3>
                             <p class="mt-3 flex-1 text-sm leading-6 text-secondary-text/75">{{ __('Schoonmaak tussen twee verblijven, zodat u de volgende gasten in een schoon verblijf ontvangt. We stemmen de planning af op uw wisseltijden.') }}</p>
@@ -59,7 +60,7 @@
                     </a>
 
                     <a href="{{ route('schoonmaak-huurwoningen') }}" class="group flex h-full flex-col overflow-hidden rounded-md border border-brand/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brand-bright/40 xl:col-span-2 xl:col-start-2">
-                        <img src="https://images.openai.com/static-rsc-4/xfyJB2AhnwD18ySc5nMAVTJWGC-xatucKxBn5h-6d4z-aeFt8Qk7zNMCOs3_vjiXtE_zgd46NSCjYKrulo9QSou9CKYwmVqwOfDgFRdlh9Q9UNUZQ-PioLr6hUiKxcfCCTI6BeX6-kAzTK646KaaK_DDJ2ysA8McwsBu0fGPryU?purpose=inline" alt="{{ __('Een modern appartementencomplex') }}" class="h-52 w-full object-cover">
+                        <img src="{{ asset('images/superfresh-home-landlords-service.jpg') }}" alt="{{ __('Een modern appartementencomplex') }}" class="h-52 w-full object-cover">
                         <div class="flex flex-1 flex-col p-6">
                             <h3 class="font-heading text-xl font-extrabold text-brand">{{ __('Schoonmaak voor verhuurders') }}</h3>
                             <p class="mt-3 flex-1 text-sm leading-6 text-secondary-text/75">{{ __('Een huurder vertrokken? Wij maken uw huurwoning schoon voordat de volgende bewoner intrekt, met aandacht voor keuken, badkamer en de overige kamers.') }}</p>
@@ -68,7 +69,7 @@
                     </a>
 
                     <a href="{{ route('schoonmaak-vastgoed') }}" class="group flex h-full flex-col overflow-hidden rounded-md border border-brand/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brand-bright/40 xl:col-span-2 xl:col-start-4">
-                        <img src="https://images.openai.com/static-rsc-4/6HjMxGtTB6ogHgKeE6UML2ubmNY-kdxbg7w-O6VIjkWq08pHsg5wqZH7DYAUbgiy9SuS2IxpthHf8JfbzRE9_EOxnAHvZXSFyo-7013r7fsOvOce4RJiSPVnjz8gVy6D-5oowYv4mCPd58CiSHPmiil9abnnMVLxmvi-fchrQqg?purpose=inline" alt="{{ __('Een ingericht interieur voor vastgoedpresentatie') }}" class="h-52 w-full object-cover">
+                        <img src="{{ asset('images/superfresh-home-property-professionals-service.jpg') }}" alt="{{ __('Een ingericht interieur voor vastgoedpresentatie') }}" class="h-52 w-full object-cover">
                         <div class="flex flex-1 flex-col p-6">
                             <h3 class="font-heading text-xl font-extrabold text-brand">{{ __('Schoonmaak voor vastgoedprofessionals') }}</h3>
                             <p class="mt-3 flex-1 text-sm leading-6 text-secondary-text/75">{{ __('Een schoon pand voor fotografie, bezichtiging of sleuteloverdracht. Voor makelaars en vastgoedbeheerders met één locatie of meerdere panden.') }}</p>

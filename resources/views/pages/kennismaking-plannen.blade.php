@@ -1,6 +1,8 @@
 @extends('layouts.site')
 
 @section('title', __('Kennismaking plannen'))
+@section('seo_title', 'Kennismaking plannen | Superfresh')
+@section('meta_description', 'Plan een kennismaking met Superfresh en bespreek de schoonmaak van uw kantoor, school of verhuurpand in Den Haag en omgeving.')
 
 @section('content')
     <main class="flex-1" aria-label="{{ __('Kennismaking plannen') }}">

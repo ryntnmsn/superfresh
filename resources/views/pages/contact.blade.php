@@ -1,6 +1,8 @@
 @extends('layouts.site')
 
 @section('title', __('Contact'))
+@section('seo_title', 'Contact opnemen | Superfresh schoonmaak Den Haag')
+@section('meta_description', 'Neem contact op met Superfresh voor vragen over schoonmaak in Den Haag en omgeving. Bel ons of bespreek uw wensen voor kantoor, school of verhuurpand.')
 
 @section('content')
     <main class="flex-1" aria-label="{{ __('Contact') }}">
